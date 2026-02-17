@@ -74,11 +74,6 @@
             color: #1e3a8a;
         }
 
-        /* FALLBACK PARA IMAGENS */
-        .img-fallback {
-            @apply absolute inset-0 flex flex-col items-center justify-center bg-slate-200 text-slate-500 font-bold uppercase text-[10px] text-center p-4 z-0 pointer-events-none;
-        }
-
         /* CARROSSEL DRAGGABLE */
         .gallery-wrapper {
             overflow-x: hidden;
@@ -193,9 +188,6 @@
     <!-- WHATSAPP FIXO -->
     <a href="https://wa.me/5515998200523?text=Ol%C3%A1!%20Estou%20no%20site%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group">
         <i data-lucide="message-circle" class="w-8 h-8"></i>
-        <span class="absolute right-full mr-4 bg-white text-royalBlue px-4 py-2 rounded-xl text-xs font-black shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none uppercase tracking-widest">
-            Falar no WhatsApp
-        </span>
     </a>
 
     <!-- NAVBAR -->
@@ -237,21 +229,11 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-royalBlue pt-44 lg:pt-32 pb-12 px-6">
-        <!-- Aumentei o pt-44 para dar mais espaço no mobile -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-royalBlue text-center px-6">
         <img src="imagens/imagemprincipal.png" alt="Cenário PETAR" class="absolute inset-0 w-full h-full object-cover z-0">
         <div class="hero-overlay absolute inset-0 z-10"></div>
         
-        <div class="relative z-20 w-full max-w-7xl grid lg:grid-cols-2 gap-16 lg:gap-12 items-center">
-            
-            <!-- Video Container (Mobile: Topo / Desktop: Direita) -->
-            <div class="flex justify-center lg:justify-end order-1 lg:order-2 reveal active">
-                <div class="video-phone-frame">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8WkFDlEUro4?rel=0&modestbranding=1&playsinline=1&controls=1&autoplay=0&mute=0&loop=1&playlist=8WkFDlEUro4" title="Chalé Morada do Sol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full object-cover"></iframe>
-                </div>
-            </div>
-
-            <!-- Texto -->
+        <div class="relative z-20 w-full max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
             <div class="text-center lg:text-left order-2 lg:order-1">
                 <div class="reveal active inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/20 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
                     <span class="flex h-2 w-2 rounded-full bg-sunYellow animate-pulse"></span>
@@ -269,7 +251,11 @@
                     </a>
                 </div>
             </div>
-            
+            <div class="flex justify-center lg:justify-end order-1 lg:order-2 reveal active">
+                <div class="video-phone-frame">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8WkFDlEUro4?rel=0&modestbranding=1&playsinline=1&controls=1&autoplay=0&mute=0&loop=1&playlist=8WkFDlEUro4" title="Chalé Morada do Sol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full object-cover"></iframe>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -280,7 +266,7 @@
                 "Depois de passar o dia no PETAR, nada melhor do que voltar pro chalé e curtir a noite com calma. As crianças se divertem assando marshmallow, os adultos relaxam, e todo mundo aproveita o tempo junto, sem pressa e sem barulho."
             </p>
             <span class="bg-royalBlue/5 text-royalBlue px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest">
-                Chalés Morada do Sol PETAR aventura garantida
+                Seu refúgio no PETAR
             </span>
         </div>
     </section>
@@ -290,15 +276,12 @@
         <div class="max-w-xl mx-auto space-y-12">
             <div class="reveal relative aspect-square w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
                 <img src="imagens/varanda-eventos.jpg.jpeg" alt="Varanda" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative bg-slate-200">
-                <div class="img-fallback">foto: varanda-eventos.jpg.jpeg</div>
             </div>
             <div class="reveal relative aspect-[3/4] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
                 <img src="imagens/caverna-agua.jpg.jpeg" alt="Caverna" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative bg-slate-200">
-                <div class="img-fallback">foto: caverna-agua.jpg.jpeg</div>
             </div>
             <div class="reveal relative aspect-square w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
                 <img src="imagens/caverna-ampla.jpg.jpeg" alt="Caverna Ampla" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative bg-slate-200">
-                <div class="img-fallback">foto: caverna-ampla.jpg.jpeg</div>
             </div>
         </div>
     </section>
@@ -345,19 +328,17 @@
                         <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
                                 <img src="imagens/capa-familia.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
-                                <div class="img-fallback">foto: capa-familia.jpg</div>
                             </div>
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
                                 <img src="imagens/familia2.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
-                                <div class="img-fallback">foto: familia2.jpg</div>
                             </div>
                         </div>
                         <div class="absolute top-6 left-6 bg-royalBlue/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">3 Suítes</div>
                         <!-- BOTÕES DE NAVEGAÇÃO -->
-                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
                             <i data-lucide="chevron-left" class="w-5 h-5"></i>
                         </button>
-                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
                             <i data-lucide="chevron-right" class="w-5 h-5"></i>
                         </button>
                     </div>
@@ -373,7 +354,7 @@
                                 <span class="bg-red-500 text-white text-[9px] px-2 py-0.5 rounded font-black uppercase tracking-wider">Oferta Site</span>
                             </div>
                             <p class="text-2xl font-black text-natureGreen mb-4">R$ 250,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
-                            <button onclick="openCalc('Suíte Família', 250)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                            <button onclick="openCalc('Suíte Família', 250)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-4 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
                         </div>
                     </div>
                 </div>
@@ -384,19 +365,17 @@
                          <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
                                 <img src="imagens/capa-grupo.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
-                                <div class="img-fallback">foto: capa-grupo.jpg</div>
                             </div>
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
                                 <img src="imagens/grupo2.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
-                                <div class="img-fallback">foto: grupo2.jpg</div>
                             </div>
                         </div>
                         <div class="absolute top-6 left-6 bg-skyBlue/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">1 Unidade</div>
                         <!-- BOTÕES -->
-                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
                             <i data-lucide="chevron-left" class="w-5 h-5"></i>
                         </button>
-                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
                             <i data-lucide="chevron-right" class="w-5 h-5"></i>
                         </button>
                     </div>
@@ -412,7 +391,7 @@
                                 <span class="bg-red-500 text-white text-[9px] px-2 py-0.5 rounded font-black uppercase tracking-wider">Oferta Site</span>
                             </div>
                             <p class="text-2xl font-black text-natureGreen mb-4">R$ 200,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
-                            <button onclick="openCalc('Suíte Grupo', 200)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                            <button onclick="openCalc('Suíte Grupo', 200)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-4 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
                         </div>
                     </div>
                 </div>
@@ -422,7 +401,7 @@
 
         <!-- TÉRREO -->
         <div class="reveal">
-            <h3 class="text-xl font-black text-natureGreen uppercase tracking-[0.2em] mb-8 border-l-4 border-sunYellow pl-4">Térreo / Terraço</h3>
+            <h3 class="text-xl font-black text-natureGreen uppercase tracking-[0.2em] mb-10 border-l-4 border-sunYellow pl-4">Térreo / Terraço</h3>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
                 
                 <!-- Suíte Cozinha Gourmet (4 fotos) -->
@@ -436,22 +415,22 @@
                         </div>
                         <div class="absolute top-6 left-6 bg-natureGreen/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Cozinha Completa</div>
                         <!-- BOTÕES DE NAVEGAÇÃO -->
-                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
                             <i data-lucide="chevron-left" class="w-5 h-5"></i>
                         </button>
-                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
                             <i data-lucide="chevron-right" class="w-5 h-5"></i>
                         </button>
                     </div>
                     <div class="p-8 flex-grow flex flex-col">
                         <h4 class="font-heading text-2xl font-black text-royalBlue mb-2">Suíte Cozinha Gourmet</h4>
                         <ul class="space-y-3 mb-6 text-slate-700 text-sm font-bold">
-                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 6 pessoas</li>
+                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 4 pessoas</li>
                             <li class="flex items-center gap-3"><i data-lucide="utensils" class="w-5 h-5 text-sunYellow"></i> Cozinha Gourmet</li>
                         </ul>
                         <div class="mt-auto">
-                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 500,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
-                            <button onclick="openCalc('Suíte Cozinha', 500)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 1.200,00 <span class="text-xs text-slate-400 font-bold uppercase">/ diária (até 4 pessoas)</span></p>
+                            <button onclick="openCalc('Suíte Cozinha', 1200, true)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-4 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
                         </div>
                     </div>
                 </div>
@@ -467,22 +446,22 @@
                         </div>
                         <div class="absolute top-6 left-6 bg-royalBlue/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Terraço</div>
                         <!-- BOTÕES -->
-                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
                             <i data-lucide="chevron-left" class="w-5 h-5"></i>
                         </button>
-                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
                             <i data-lucide="chevron-right" class="w-5 h-5"></i>
                         </button>
                     </div>
                     <div class="p-8 flex-grow flex flex-col">
                         <h4 class="font-heading text-2xl font-black text-royalBlue mb-2">Suíte Bancada Gourmet</h4>
                         <ul class="space-y-3 mb-6 text-slate-700 text-sm font-bold">
-                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 6 pessoas</li>
+                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 4 pessoas</li>
                             <li class="flex items-center gap-3"><i data-lucide="chef-hat" class="w-5 h-5 text-sunYellow"></i> Bancada + Utensílios</li>
                         </ul>
                         <div class="mt-auto">
-                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 300,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
-                            <button onclick="openCalc('Suíte Bancada', 300)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 1.200,00 <span class="text-xs text-slate-400 font-bold uppercase">/ diária (até 4 pessoas)</span></p>
+                            <button onclick="openCalc('Suíte Bancada', 1200, true)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-4 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
                         </div>
                     </div>
                 </div>
@@ -491,7 +470,6 @@
                 <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
                     <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
                          <img src="imagens/capa-camping.jpg" class="w-full h-full object-cover cursor-zoom-in z-10 relative bg-slate-200" onclick="openLightbox(this.src)" onerror="this.style.display='none'">
-                         <div class="img-fallback">foto: capa-camping.jpg</div>
                          <div class="absolute top-6 left-6 bg-natureGreen/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Aventura</div>
                     </div>
                     <div class="p-8 flex-grow flex flex-col">
@@ -501,8 +479,8 @@
                             <li class="flex items-center gap-3"><i data-lucide="shield-check" class="w-5 h-5 text-sunYellow"></i> Murado e Seguro</li>
                         </ul>
                         <div class="mt-auto">
-                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 80,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
-                            <button onclick="openCalc('Camping', 80)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 100,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
+                            <button onclick="openCalc('Camping', 100)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-4 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
                         </div>
                     </div>
                 </div>
@@ -519,22 +497,22 @@
             <div id="gallery-container" class="gallery-wrapper">
                 <div class="gallery-track" id="gallery-track">
                     <!-- Slides Originais (1-10) -->
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria1.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria1.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria2.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria2.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria3.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria3.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria4.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria4.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria5.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria5.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria6.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria6.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria7.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria7.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria8.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria8.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria9.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria9.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria10.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria10.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria1.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria2.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria3.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria4.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria5.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria6.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria7.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria8.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria9.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria10.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
                     <!-- Duplicate for infinite loop -->
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria1.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria1.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria2.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria2.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria3.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria3.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria4.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria4.jpg</div></div></div>
-                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria5.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria5.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria1.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria2.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria3.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria4.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria5.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative bg-slate-200"></div></div>
                 </div>
             </div>
             
@@ -911,11 +889,23 @@
         // CALCULADORA
         let currentPricePerPerson = 0;
         let currentRoomTitle = "";
+        let isFixedDailyRate = false; // Novo parâmetro para saber se é valor fixo
 
-        function openCalc(roomName, price) {
+        function openCalc(roomName, price, isFixed = false) {
             currentPricePerPerson = price;
             currentRoomTitle = roomName;
+            isFixedDailyRate = isFixed; // Salva o tipo de cobrança
+            
             document.getElementById('modalRoomName').innerText = roomName;
+            
+            // Atualiza o texto explicativo
+            const disclaimer = document.getElementById('priceDisclaimer');
+            if (isFixed) {
+                disclaimer.innerText = "*Valor total da diária (até 4 pessoas)";
+            } else {
+                disclaimer.innerText = "*Valor por pessoa x dias";
+            }
+
             document.getElementById('calcModal').classList.remove('hidden');
             updateTotal();
         }
@@ -943,7 +933,16 @@
         function updateTotal() {
             const people = parseInt(document.getElementById('numPeople').value);
             const days = parseInt(document.getElementById('numDays').value);
-            const total = currentPricePerPerson * people * days;
+            let total = 0;
+
+            if (isFixedDailyRate) {
+                // Cálculo para Suítes Gourmet (Valor Fixo por Dia)
+                total = currentPricePerPerson * days;
+            } else {
+                // Cálculo Padrão (Valor por Pessoa x Dias)
+                total = currentPricePerPerson * people * days;
+            }
+            
             document.getElementById('totalPrice').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         }
 
@@ -951,7 +950,14 @@
             const people = document.getElementById('numPeople').value;
             const days = document.getElementById('numDays').value;
             const total = document.getElementById('totalPrice').innerText;
-            const text = `Olá! Gostaria de reservar a *${currentRoomTitle}* para *${people} pessoas* por *${days} dias*. O site estimou *${total}*. Tem disponibilidade?`;
+            
+            let text = "";
+            if (isFixedDailyRate) {
+                 text = `Olá! Gostaria de reservar a *${currentRoomTitle}* (diária fixa) para *${days} dias*. O site estimou *${total}*. Tem disponibilidade?`;
+            } else {
+                 text = `Olá! Gostaria de reservar a *${currentRoomTitle}* para *${people} pessoas* por *${days} dias*. O site estimou *${total}*. Tem disponibilidade?`;
+            }
+            
             window.open(`https://wa.me/5515998200523?text=${encodeURIComponent(text)}`, '_blank');
         }
     </script>
