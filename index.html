@@ -3,49 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- === SEO: OTIMIZAÇÃO PARA O GOOGLE === -->
-    <title>Chalés Morada do Sol PETAR | Pousada em Iporanga SP</title>
-    <meta name="description" content="Hospedagem no coração do PETAR em Iporanga-SP. Chalés para famílias e grupos, cozinha gourmet, camping e suporte para passeios nas cavernas. Reserve direto no WhatsApp!">
-    <meta name="keywords" content="pousada petar, chalé iporanga, hospedagem petar, caverna do diabo, petar sp, camping petar, pousada com cozinha petar">
-    <meta name="author" content="Chalés Morada do Sol">
-    <meta name="robots" content="index, follow">
-    
-    <!-- Open Graph / Redes Sociais -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.chalesmoradadosolpetar.com.br/">
-    <meta property="og:title" content="Chalés Morada do Sol - Seu refúgio no PETAR">
-    <meta property="og:description" content="Conforto, natureza e aventura. Chalés completos e área de camping em Iporanga-SP.">
-    <meta property="og:image" content="imagens/imagemprincipal.png">
-
-    <!-- Schema.org (Dados Estruturados para o Google entender o negócio) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LodgingBusiness",
-      "name": "Chalés Morada do Sol PETAR",
-      "image": "imagens/imagemprincipal.png",
-      "@id": "",
-      "url": "https://www.chalesmoradadosolpetar.com.br/",
-      "telephone": "+5515998200523",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Estr. do Alambari, 565",
-        "addressLocality": "Iporanga",
-        "addressRegion": "SP",
-        "postalCode": "18339-899",
-        "addressCountry": "BR"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": -24.551654,
-        "longitude": -48.665792
-      },
-      "priceRange": "$$",
-      "description": "Pousada familiar no PETAR com chalés, suítes e camping."
-    }
-    </script>
-
+    <title>Chalés Morada do Sol PETAR | Oficial</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fontes -->
@@ -235,6 +193,9 @@
     <!-- WHATSAPP FIXO -->
     <a href="https://wa.me/5515998200523?text=Ol%C3%A1!%20Estou%20no%20site%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group">
         <i data-lucide="message-circle" class="w-8 h-8"></i>
+        <span class="absolute right-full mr-4 bg-white text-royalBlue px-4 py-2 rounded-xl text-xs font-black shadow-xl opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none uppercase tracking-widest">
+            Falar no WhatsApp
+        </span>
     </a>
 
     <!-- NAVBAR -->
@@ -276,11 +237,21 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-royalBlue text-center px-6">
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-royalBlue pt-44 lg:pt-32 pb-12 px-6">
+        <!-- Aumentei o pt-44 para dar mais espaço no mobile -->
         <img src="imagens/imagemprincipal.png" alt="Cenário PETAR" class="absolute inset-0 w-full h-full object-cover z-0">
         <div class="hero-overlay absolute inset-0 z-10"></div>
         
-        <div class="relative z-20 w-full max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
+        <div class="relative z-20 w-full max-w-7xl grid lg:grid-cols-2 gap-16 lg:gap-12 items-center">
+            
+            <!-- Video Container (Mobile: Topo / Desktop: Direita) -->
+            <div class="flex justify-center lg:justify-end order-1 lg:order-2 reveal active">
+                <div class="video-phone-frame">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8WkFDlEUro4?rel=0&modestbranding=1&playsinline=1&controls=1&autoplay=0&mute=0&loop=1&playlist=8WkFDlEUro4" title="Chalé Morada do Sol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full object-cover"></iframe>
+                </div>
+            </div>
+
+            <!-- Texto -->
             <div class="text-center lg:text-left order-2 lg:order-1">
                 <div class="reveal active inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/20 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
                     <span class="flex h-2 w-2 rounded-full bg-sunYellow animate-pulse"></span>
@@ -298,11 +269,7 @@
                     </a>
                 </div>
             </div>
-            <div class="flex justify-center lg:justify-end order-1 lg:order-2 reveal active">
-                <div class="video-phone-frame">
-                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8WkFDlEUro4?rel=0&modestbranding=1&playsinline=1&controls=1&autoplay=0&mute=0&loop=1&playlist=8WkFDlEUro4" title="Chalé Morada do Sol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full object-cover"></iframe>
-                </div>
-            </div>
+            
         </div>
     </section>
 
@@ -313,7 +280,7 @@
                 "Depois de passar o dia no PETAR, nada melhor do que voltar pro chalé e curtir a noite com calma. As crianças se divertem assando marshmallow, os adultos relaxam, e todo mundo aproveita o tempo junto, sem pressa e sem barulho."
             </p>
             <span class="bg-royalBlue/5 text-royalBlue px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest">
-                Seu refúgio no PETAR
+                Chalés Morada do Sol PETAR aventura garantida
             </span>
         </div>
     </section>
@@ -322,15 +289,15 @@
     <section class="w-full bg-slate-900 border-b border-white/10 py-16 px-4">
         <div class="max-w-xl mx-auto space-y-12">
             <div class="reveal relative aspect-square w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
-                <img src="imagens/varanda-eventos.jpg.jpeg" alt="Varanda" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative">
+                <img src="imagens/varanda-eventos.jpg.jpeg" alt="Varanda" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative bg-slate-200">
                 <div class="img-fallback">foto: varanda-eventos.jpg.jpeg</div>
             </div>
             <div class="reveal relative aspect-[3/4] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
-                <img src="imagens/caverna-agua.jpg.jpeg" alt="Caverna" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative">
+                <img src="imagens/caverna-agua.jpg.jpeg" alt="Caverna" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative bg-slate-200">
                 <div class="img-fallback">foto: caverna-agua.jpg.jpeg</div>
             </div>
             <div class="reveal relative aspect-square w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
-                <img src="imagens/caverna-ampla.jpg.jpeg" alt="Caverna Ampla" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative">
+                <img src="imagens/caverna-ampla.jpg.jpeg" alt="Caverna Ampla" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative bg-slate-200">
                 <div class="img-fallback">foto: caverna-ampla.jpg.jpeg</div>
             </div>
         </div>
@@ -377,11 +344,11 @@
                     <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
                         <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
-                                <img src="imagens/capa-familia.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <img src="imagens/capa-familia.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
                                 <div class="img-fallback">foto: capa-familia.jpg</div>
                             </div>
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
-                                <img src="imagens/familia2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <img src="imagens/familia2.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
                                 <div class="img-fallback">foto: familia2.jpg</div>
                             </div>
                         </div>
@@ -416,11 +383,11 @@
                     <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
                          <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
-                                <img src="imagens/capa-grupo.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <img src="imagens/capa-grupo.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
                                 <div class="img-fallback">foto: capa-grupo.jpg</div>
                             </div>
                             <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
-                                <img src="imagens/grupo2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <img src="imagens/grupo2.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'">
                                 <div class="img-fallback">foto: grupo2.jpg</div>
                             </div>
                         </div>
@@ -462,10 +429,10 @@
                 <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
                     <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
                         <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/capa-cozinha.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha3.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha4.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/capa-cozinha.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha2.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha3.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha4.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
                         </div>
                         <div class="absolute top-6 left-6 bg-natureGreen/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Cozinha Completa</div>
                         <!-- BOTÕES DE NAVEGAÇÃO -->
@@ -493,10 +460,10 @@
                 <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
                     <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
                         <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/capa-bancada.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada3.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
-                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada4.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/capa-bancada.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada2.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada3.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada4.jpg" class="w-full h-full object-cover z-10 relative bg-slate-200" onerror="this.style.display='none'"></div>
                         </div>
                         <div class="absolute top-6 left-6 bg-royalBlue/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Terraço</div>
                         <!-- BOTÕES -->
@@ -523,7 +490,7 @@
                 <!-- Camping -->
                 <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
                     <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
-                         <img src="imagens/capa-camping.jpg" class="w-full h-full object-cover cursor-zoom-in z-10 relative" onclick="openLightbox(this.src)" onerror="this.style.display='none'">
+                         <img src="imagens/capa-camping.jpg" class="w-full h-full object-cover cursor-zoom-in z-10 relative bg-slate-200" onclick="openLightbox(this.src)" onerror="this.style.display='none'">
                          <div class="img-fallback">foto: capa-camping.jpg</div>
                          <div class="absolute top-6 left-6 bg-natureGreen/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Aventura</div>
                     </div>
@@ -584,7 +551,7 @@
 
             <div class="space-y-4">
                 
-                <!-- 1. Política de cancelamento -->
+                <!-- 1 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">1. Política de cancelamento</span>
@@ -599,7 +566,7 @@
                     </div>
                 </div>
 
-                <!-- 2. Localização -->
+                <!-- 2 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">2. Aonde estamos localizados?</span>
@@ -618,7 +585,7 @@
                     </div>
                 </div>
 
-                <!-- 3. Pet Friendly -->
+                <!-- 3 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">3. Pet Friendly com algumas regrinhas!</span>
@@ -634,7 +601,7 @@
                     </div>
                 </div>
 
-                <!-- 4. Trabalho -->
+                <!-- 4 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">4. Precisa trabalhar durante a estadia?</span>
@@ -647,7 +614,7 @@
                     </div>
                 </div>
 
-                <!-- 5. Alimentos -->
+                <!-- 5 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">5. Posso levar alimentos e bebidas?</span>
@@ -661,7 +628,7 @@
                     </div>
                 </div>
 
-                <!-- 6. Pagamento -->
+                <!-- 6 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">6. Formas de pagamento</span>
@@ -674,7 +641,7 @@
                     </div>
                 </div>
 
-                <!-- 7. Horário -->
+                <!-- 7 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">7. Horário de funcionamento</span>
@@ -689,7 +656,7 @@
                     </div>
                 </div>
 
-                <!-- 8. Contato -->
+                <!-- 8 -->
                 <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
                     <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
                         <span class="font-black text-royalBlue uppercase text-sm tracking-tight">8. Como entrar em contato?</span>
