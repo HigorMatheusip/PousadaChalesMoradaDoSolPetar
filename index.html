@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- === SEO: OTIMIZAÇÃO PARA O GOOGLE === -->
+    <title>Chalés Morada do Sol PETAR | Pousada em Iporanga SP</title>
+    <meta name="description" content="Hospedagem no coração do PETAR em Iporanga-SP. Chalés para famílias e grupos, cozinha gourmet, camping e suporte para passeios nas cavernas. Reserve direto no WhatsApp!">
+    <meta name="keywords" content="pousada petar, chalé iporanga, hospedagem petar, caverna do diabo, petar sp, camping petar, pousada com cozinha petar">
+    <meta name="author" content="Chalés Morada do Sol">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Redes Sociais -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.chalesmoradadosolpetar.com.br/">
+    <meta property="og:title" content="Chalés Morada do Sol - Seu refúgio no PETAR">
+    <meta property="og:description" content="Conforto, natureza e aventura. Chalés completos e área de camping em Iporanga-SP.">
+    <meta property="og:image" content="imagens/imagemprincipal.png">
+
+    <!-- Schema.org (Dados Estruturados para o Google entender o negócio) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LodgingBusiness",
+      "name": "Chalés Morada do Sol PETAR",
+      "image": "imagens/imagemprincipal.png",
+      "@id": "",
+      "url": "https://www.chalesmoradadosolpetar.com.br/",
+      "telephone": "+5515998200523",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Estr. do Alambari, 565",
+        "addressLocality": "Iporanga",
+        "addressRegion": "SP",
+        "postalCode": "18339-899",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -24.551654,
+        "longitude": -48.665792
+      },
+      "priceRange": "$$",
+      "description": "Pousada familiar no PETAR com chalés, suítes e camping."
+    }
+    </script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        royalBlue: '#1e3a8a',
+                        sunYellow: '#f59e0b',
+                        natureGreen: '#15803d',
+                        skyBlue: '#0ea5e9',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* ANIMAÇÃO DE ENTRADA */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* VIDRO E FUNDO */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(30, 58, 138, 0.85) 100%);
+        }
+        
+        /* ACORDEÃO (FAQ) FUNCIONAL */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.4s ease-out, opacity 0.4s ease-out, padding 0.4s ease;
+        }
+        .accordion-item.accordion-open .accordion-content {
+            opacity: 1;
+        }
+        .accordion-icon {
+            transition: transform 0.3s ease;
+        }
+        .accordion-item.accordion-open .accordion-icon {
+            transform: rotate(180deg);
+        }
+        .accordion-item.accordion-open .accordion-header {
+            color: #1e3a8a;
+        }
+
+        /* FALLBACK PARA IMAGENS */
+        .img-fallback {
+            @apply absolute inset-0 flex flex-col items-center justify-center bg-slate-200 text-slate-500 font-bold uppercase text-[10px] text-center p-4 z-0 pointer-events-none;
+        }
+
+        /* CARROSSEL DRAGGABLE */
+        .gallery-wrapper {
+            overflow-x: hidden;
+            white-space: nowrap;
+            cursor: grab;
+            -webkit-overflow-scrolling: touch;
+            touch-action: pan-y;
+        }
+        .gallery-wrapper:active {
+            cursor: grabbing;
+        }
+        .gallery-track {
+            display: inline-flex;
+            gap: 1rem;
+            padding-bottom: 20px;
+        }
+        .gallery-item {
+            flex: 0 0 300px;
+            height: 300px;
+            user-select: none;
+        }
+
+        /* CONTAINER DE VÍDEO VERTICAL */
+        .video-phone-frame {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 9 / 16;
+            border-radius: 2rem;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 4px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Modal da Calculadora e Lightbox */
+        #calcModal, #lightboxModal {
+            transition: opacity 0.3s ease;
+        }
+        #calcModal.hidden, #lightboxModal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #calcModal:not(.hidden), #lightboxModal:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Scrollbar oculta para sliders */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Ajuste do carrossel dos quartos */
+        .room-slider {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans leading-relaxed">
+
+    <!-- LIGHTBOX (ZOOM FOTOS) -->
+    <div id="lightboxModal" class="fixed inset-0 z-[60] bg-black/95 hidden flex items-center justify-center p-4 cursor-zoom-out" onclick="closeLightbox()">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white/80 hover:text-white transition-colors z-50 p-2 bg-black/50 rounded-full">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="Zoom" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl animate-[pulseSoft_0.3s_ease-out] cursor-default" onclick="event.stopPropagation()">
+    </div>
+
+    <!-- MODAL CALCULADORA -->
+    <div id="calcModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 hidden px-4">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full relative shadow-2xl animate-[pulseSoft_0.3s_ease-out]">
+            <button onclick="closeCalc()" class="absolute top-4 right-4 text-slate-400 hover:text-red-500"><i data-lucide="x" class="w-6 h-6"></i></button>
+            
+            <h3 class="font-heading text-2xl font-black text-royalBlue mb-2">Simular Valor</h3>
+            <p id="modalRoomName" class="text-sm text-slate-500 font-bold uppercase tracking-widest mb-6">Suíte Família</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Pessoas</label>
+                    <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden">
+                        <button onclick="updatePeople(-1)" class="p-3 bg-slate-100 hover:bg-slate-200"><i data-lucide="minus" class="w-4 h-4"></i></button>
+                        <input type="number" id="numPeople" value="2" min="1" class="w-full text-center font-bold text-royalBlue outline-none" readonly>
+                        <button onclick="updatePeople(1)" class="p-3 bg-slate-100 hover:bg-slate-200"><i data-lucide="plus" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Diárias</label>
+                    <div class="flex items-center border border-slate-200 rounded-xl overflow-hidden">
+                        <button onclick="updateDays(-1)" class="p-3 bg-slate-100 hover:bg-slate-200"><i data-lucide="minus" class="w-4 h-4"></i></button>
+                        <input type="number" id="numDays" value="1" min="1" class="w-full text-center font-bold text-royalBlue outline-none" readonly>
+                        <button onclick="updateDays(1)" class="p-3 bg-slate-100 hover:bg-slate-200"><i data-lucide="plus" class="w-4 h-4"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-slate-50 p-4 rounded-xl text-center border border-slate-100">
+                <p class="text-xs text-slate-400 uppercase font-bold">Total Estimado</p>
+                <p id="totalPrice" class="text-3xl font-black text-natureGreen">R$ 0,00</p>
+                <p class="text-[10px] text-slate-400 mt-1">*Valor por pessoa x dias</p>
+            </div>
+
+            <button id="btnZapCalc" onclick="sendZapCalc()" class="w-full mt-6 bg-[#25D366] text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-green-600 transition-colors shadow-lg">
+                Reservar no WhatsApp <i data-lucide="message-circle" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- WHATSAPP FIXO -->
+    <a href="https://wa.me/5515998200523?text=Ol%C3%A1!%20Estou%20no%20site%20e%20gostaria%20de%20consultar%20disponibilidade." target="_blank" class="fixed bottom-6 right-6 z-40 bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 active:scale-95 transition-all duration-300 group">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- NAVBAR -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-500 py-4 lg:py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass border border-white/20 rounded-full px-6 py-2 flex justify-between items-center shadow-xl shadow-black/5">
+                <div class="flex items-center gap-3">
+                    <div class="relative w-12 h-12 rounded-full overflow-hidden border-2 border-sunYellow bg-royalBlue shrink-0">
+                        <img src="imagens/logopousada.jpg" alt="Logo" class="relative z-10 w-full h-full object-cover">
+                        <div class="absolute inset-0 flex items-center justify-center text-[8px] text-white font-bold bg-royalBlue uppercase">LOGO</div>
+                    </div>
+                    <div>
+                        <span class="font-heading font-black text-royalBlue text-lg leading-none block tracking-tighter uppercase">Chalés Morada do Sol PETAR</span>
+                        <span class="text-sunYellow text-[10px] font-black uppercase tracking-[0.2em]">Pousada no Petar</span>
+                    </div>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8 text-sm font-bold">
+                    <a href="#home" class="text-slate-700 hover:text-royalBlue transition-colors text-xs uppercase tracking-widest">Início</a>
+                    <a href="#acomodacoes" class="text-slate-700 hover:text-royalBlue transition-colors text-xs uppercase tracking-widest">Acomodações</a>
+                    <a href="#faq" class="text-slate-700 hover:text-royalBlue transition-colors text-xs uppercase tracking-widest text-xs">Dúvidas</a>
+                    <a href="https://wa.me/5515998200523?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva." class="bg-royalBlue text-white px-6 py-3 rounded-full hover:bg-blue-900 transition-all shadow-lg text-xs uppercase">
+                        Consultar Disponibilidade
+                    </a>
+                </div>
+
+                <button id="menuBtn" class="md:hidden p-2 text-royalBlue">
+                    <i data-lucide="menu" class="w-7 h-7"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden md:hidden absolute top-24 left-4 right-4 bg-white rounded-[2rem] p-8 shadow-2xl border border-slate-100 space-y-6">
+            <a href="#home" class="block font-black text-xl">Início</a>
+            <a href="#acomodacoes" class="block font-black text-xl">Acomodações</a>
+            <a href="#faq" class="block font-black text-xl">Dúvidas Frequentes</a>
+            <a href="https://wa.me/5515998200523?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20reserva." class="block bg-sunYellow text-white text-center py-4 rounded-2xl font-black shadow-lg">CONSULTAR DISPONIBILIDADE</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-royalBlue text-center px-6">
+        <img src="imagens/imagemprincipal.png" alt="Cenário PETAR" class="absolute inset-0 w-full h-full object-cover z-0">
+        <div class="hero-overlay absolute inset-0 z-10"></div>
+        
+        <div class="relative z-20 w-full max-w-7xl grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-center lg:text-left order-2 lg:order-1">
+                <div class="reveal active inline-flex items-center gap-2 bg-white/10 backdrop-blur-md text-white border border-white/20 px-5 py-2 rounded-full text-[10px] font-black uppercase tracking-[0.2em] mb-6">
+                    <span class="flex h-2 w-2 rounded-full bg-sunYellow animate-pulse"></span>
+                    Aventura e Conforto
+                </div>
+                <h1 class="reveal active font-heading text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-[1.1] tracking-tighter drop-shadow-2xl">
+                    Hospede-se no coração do <span class="text-sunYellow italic">PETAR</span> e encante-se!
+                </h1>
+                <p class="reveal active text-lg text-blue-100/90 mb-10 font-medium leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Oferecemos hospedagem, orientação e total suporte para que você explore os melhores roteiros da região com tranquilidade.
+                </p>
+                <div class="reveal active flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="https://wa.me/5515998200523?text=Ol%C3%A1!%20Vi%20o%20site%20e%20gostaria%20de%20consultar%20disponibilidade%20para%20hospedagem." class="bg-sunYellow text-white px-10 py-4 rounded-full text-lg font-black hover:bg-amber-600 transition-all shadow-xl flex items-center justify-center gap-3 transform hover:scale-105 active:scale-95 uppercase tracking-widest">
+                        Consultar Disponibilidade <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="flex justify-center lg:justify-end order-1 lg:order-2 reveal active">
+                <div class="video-phone-frame">
+                    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8WkFDlEUro4?rel=0&modestbranding=1&playsinline=1&controls=1&autoplay=0&mute=0&loop=1&playlist=8WkFDlEUro4" title="Chalé Morada do Sol" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="absolute inset-0 w-full h-full object-cover"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORY TEXT -->
+    <section class="py-24 bg-white border-b px-6">
+        <div class="max-w-4xl mx-auto text-center reveal">
+            <p class="text-xl md:text-3xl text-slate-700 font-medium leading-relaxed italic mb-8">
+                "Depois de passar o dia no PETAR, nada melhor do que voltar pro chalé e curtir a noite com calma. As crianças se divertem assando marshmallow, os adultos relaxam, e todo mundo aproveita o tempo junto, sem pressa e sem barulho."
+            </p>
+            <span class="bg-royalBlue/5 text-royalBlue px-6 py-2 rounded-full font-black text-xs uppercase tracking-widest">
+                Seu refúgio no PETAR
+            </span>
+        </div>
+    </section>
+
+    <!-- DESTAQUES VISUAIS -->
+    <section class="w-full bg-slate-900 border-b border-white/10 py-16 px-4">
+        <div class="max-w-xl mx-auto space-y-12">
+            <div class="reveal relative aspect-square w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="imagens/varanda-eventos.jpg.jpeg" alt="Varanda" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative">
+                <div class="img-fallback">foto: varanda-eventos.jpg.jpeg</div>
+            </div>
+            <div class="reveal relative aspect-[3/4] w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="imagens/caverna-agua.jpg.jpeg" alt="Caverna" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative">
+                <div class="img-fallback">foto: caverna-agua.jpg.jpeg</div>
+            </div>
+            <div class="reveal relative aspect-square w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10 group cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
+                <img src="imagens/caverna-ampla.jpg.jpeg" alt="Caverna Ampla" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 z-10 relative">
+                <div class="img-fallback">foto: caverna-ampla.jpg.jpeg</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VÍDEO TOUR VIRTUAL (HORIZONTAL) -->
+    <section class="py-24 bg-slate-100 text-slate-800 px-6 border-b border-slate-200">
+        <div class="max-w-5xl mx-auto text-center">
+            <span class="text-sunYellow font-black text-xs uppercase tracking-[0.4em] mb-4 block">Experiência Completa</span>
+            <h2 class="reveal font-heading text-3xl md:text-5xl font-black mb-8 tracking-tighter text-royalBlue">
+                Faça um Tour pela <span class="text-natureGreen">Morada do Sol</span>
+            </h2>
+            <p class="reveal text-slate-500 mb-12 text-lg max-w-2xl mx-auto font-medium">
+                Confira em detalhes nossos quartos, áreas de lazer e toda a natureza que nos cerca neste vídeo especial.
+            </p>
+            
+            <div class="reveal relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl border-4 border-white group">
+                <iframe 
+                    class="absolute inset-0 w-full h-full" 
+                    src="https://www.youtube.com/embed/GjS0JluGzJI?rel=0&modestbranding=1" 
+                    title="Tour Pousada Chalé Morada do Sol" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- ACOMODAÇÕES -->
+    <section id="acomodacoes" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="reveal text-center mb-12">
+            <h2 class="font-heading text-4xl md:text-5xl font-black text-royalBlue mb-6 tracking-tighter uppercase">Nossas Acomodações</h2>
+            <div class="w-20 h-2 bg-sunYellow mx-auto rounded-full"></div>
+        </div>
+
+        <!-- ANDAR SUPERIOR -->
+        <div class="reveal mb-16">
+            <h3 class="text-xl font-black text-natureGreen uppercase tracking-[0.2em] mb-8 border-l-4 border-sunYellow pl-4">Andar Superior</h3>
+            <div class="grid md:grid-cols-2 gap-10">
+                
+                <!-- Suíte Família (3 fotos) -->
+                <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
+                        <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
+                                <img src="imagens/capa-familia.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <div class="img-fallback">foto: capa-familia.jpg</div>
+                            </div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
+                                <img src="imagens/familia2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <div class="img-fallback">foto: familia2.jpg</div>
+                            </div>
+                        </div>
+                        <div class="absolute top-6 left-6 bg-royalBlue/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">3 Suítes</div>
+                        <!-- BOTÕES DE NAVEGAÇÃO -->
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="font-heading text-2xl font-black text-royalBlue mb-2">Suíte Família</h4>
+                        <ul class="space-y-3 mb-6 text-slate-700 text-sm font-bold">
+                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 4 pessoas</li>
+                            <li class="flex items-center gap-3"><i data-lucide="bed" class="w-5 h-5 text-royalBlue"></i> 1 Cama Casal + 1 Beliche</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-sm text-slate-400 line-through font-bold">R$ 280,00</span>
+                                <span class="bg-red-500 text-white text-[9px] px-2 py-0.5 rounded font-black uppercase tracking-wider">Oferta Site</span>
+                            </div>
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 250,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
+                            <button onclick="openCalc('Suíte Família', 250)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suíte Grupo (2 fotos) -->
+                <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
+                         <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
+                                <img src="imagens/capa-grupo.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <div class="img-fallback">foto: capa-grupo.jpg</div>
+                            </div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)">
+                                <img src="imagens/grupo2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'">
+                                <div class="img-fallback">foto: grupo2.jpg</div>
+                            </div>
+                        </div>
+                        <div class="absolute top-6 left-6 bg-skyBlue/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">1 Unidade</div>
+                        <!-- BOTÕES -->
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="font-heading text-2xl font-black text-royalBlue mb-2">Suíte Grupo</h4>
+                        <ul class="space-y-3 mb-6 text-slate-700 text-sm font-bold">
+                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 4 pessoas</li>
+                            <li class="flex items-center gap-3"><i data-lucide="layers" class="w-5 h-5 text-royalBlue"></i> 2 Beliches</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-sm text-slate-400 line-through font-bold">R$ 280,00</span>
+                                <span class="bg-red-500 text-white text-[9px] px-2 py-0.5 rounded font-black uppercase tracking-wider">Oferta Site</span>
+                            </div>
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 200,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
+                            <button onclick="openCalc('Suíte Grupo', 200)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- TÉRREO -->
+        <div class="reveal">
+            <h3 class="text-xl font-black text-natureGreen uppercase tracking-[0.2em] mb-8 border-l-4 border-sunYellow pl-4">Térreo / Terraço</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Suíte Cozinha Gourmet (4 fotos) -->
+                <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
+                        <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/capa-cozinha.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha3.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/cozinha4.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                        </div>
+                        <div class="absolute top-6 left-6 bg-natureGreen/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Cozinha Completa</div>
+                        <!-- BOTÕES DE NAVEGAÇÃO -->
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="font-heading text-2xl font-black text-royalBlue mb-2">Suíte Cozinha Gourmet</h4>
+                        <ul class="space-y-3 mb-6 text-slate-700 text-sm font-bold">
+                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 6 pessoas</li>
+                            <li class="flex items-center gap-3"><i data-lucide="utensils" class="w-5 h-5 text-sunYellow"></i> Cozinha Gourmet</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 500,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
+                            <button onclick="openCalc('Suíte Cozinha', 500)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Suíte Bancada (Terraço) (4 fotos) -->
+                <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
+                        <div class="room-slider w-full h-full flex snap-x snap-mandatory overflow-x-auto scrollbar-hide">
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/capa-bancada.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada2.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada3.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                            <div class="min-w-full h-full snap-center relative cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/bancada4.jpg" class="w-full h-full object-cover z-10 relative" onerror="this.style.display='none'"></div>
+                        </div>
+                        <div class="absolute top-6 left-6 bg-royalBlue/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Terraço</div>
+                        <!-- BOTÕES -->
+                        <button class="prev-btn absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20 opacity-0 pointer-events-none" onclick="event.stopPropagation(); scrollRoom(this, -1)">
+                            <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                        </button>
+                        <button class="next-btn absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/70 transition-all z-20" onclick="event.stopPropagation(); scrollRoom(this, 1)">
+                            <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                        </button>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="font-heading text-2xl font-black text-royalBlue mb-2">Suíte Bancada Gourmet</h4>
+                        <ul class="space-y-3 mb-6 text-slate-700 text-sm font-bold">
+                            <li class="flex items-center gap-3"><i data-lucide="users" class="w-5 h-5 text-royalBlue"></i> Até 6 pessoas</li>
+                            <li class="flex items-center gap-3"><i data-lucide="chef-hat" class="w-5 h-5 text-sunYellow"></i> Bancada + Utensílios</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 300,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
+                            <button onclick="openCalc('Suíte Bancada', 300)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Camping -->
+                <div class="card-hover bg-white rounded-[2.5rem] shadow-xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="relative aspect-[4/3] bg-slate-200 overflow-hidden group">
+                         <img src="imagens/capa-camping.jpg" class="w-full h-full object-cover cursor-zoom-in z-10 relative" onclick="openLightbox(this.src)" onerror="this.style.display='none'">
+                         <div class="img-fallback">foto: capa-camping.jpg</div>
+                         <div class="absolute top-6 left-6 bg-natureGreen/90 text-white px-4 py-2 rounded-full text-[10px] font-black uppercase z-20">Aventura</div>
+                    </div>
+                    <div class="p-8 flex-grow flex flex-col">
+                        <h4 class="font-heading text-2xl font-black text-royalBlue mb-2">Camping</h4>
+                        <ul class="space-y-3 mb-6 text-slate-700 text-sm font-bold">
+                            <li class="flex items-center gap-3"><i data-lucide="tent" class="w-5 h-5 text-royalBlue"></i> Aventureiros</li>
+                            <li class="flex items-center gap-3"><i data-lucide="shield-check" class="w-5 h-5 text-sunYellow"></i> Murado e Seguro</li>
+                        </ul>
+                        <div class="mt-auto">
+                            <p class="text-2xl font-black text-natureGreen mb-4">R$ 80,00 <span class="text-xs text-slate-400 font-bold uppercase">/ pessoa</span></p>
+                            <button onclick="openCalc('Camping', 80)" class="w-full text-center bg-slate-100 text-royalBlue font-black py-3 rounded-xl hover:bg-sunYellow hover:text-white transition-all">Simular Valor</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA (CARROSSEL INTERATIVO + AUTOMÁTICO) -->
+    <section class="py-24 px-6 bg-slate-200 border-t overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="reveal font-heading text-4xl font-black text-royalBlue text-center mb-16 uppercase tracking-tighter">Galeria de Fotos</h2>
+            
+            <div id="gallery-container" class="gallery-wrapper">
+                <div class="gallery-track" id="gallery-track">
+                    <!-- Slides Originais (1-10) -->
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria1.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria1.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria2.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria2.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria3.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria3.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria4.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria4.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria5.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria5.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria6.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria6.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria7.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria7.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria8.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria8.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria9.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria9.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria10.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria10.jpg</div></div></div>
+                    <!-- Duplicate for infinite loop -->
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria1.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria1.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria2.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria2.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria3.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria3.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria4.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria4.jpg</div></div></div>
+                    <div class="gallery-item"><div class="relative w-full h-full rounded-3xl overflow-hidden bg-slate-300 border-4 border-white/50 cursor-zoom-in" onclick="openLightbox(this.querySelector('img').src)"><img src="imagens/galeria5.jpg" draggable="false" class="w-full h-full object-cover pointer-events-none z-10 relative"><div class="img-fallback">galeria5.jpg</div></div></div>
+                </div>
+            </div>
+            
+            <p class="text-center text-slate-400 text-[10px] mt-6 uppercase tracking-widest animate-pulse font-black">
+                <i data-lucide="move-horizontal" class="inline w-4 h-4 mr-1"></i> Arraste para ver mais
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section id="faq" class="py-24 bg-white px-6 border-t">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="reveal font-heading text-4xl font-black text-royalBlue mb-16 tracking-tighter uppercase text-center">Dúvidas Frequentes</h2>
+
+            <div class="space-y-4">
+                
+                <!-- 1. Política de cancelamento -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">1. Política de cancelamento</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 space-y-4 border-t font-medium border-slate-200 bg-white">
+                            <p>Cancelamento com até 15 dias da data de entrada – devolução integral do valor do sinal</p>
+                            <p>Cancelamento de 7 à 14 dias da data de entrada – devolução de 50% do sinal ou crédito de 100% para reagendar outra data;</p>
+                            <p>Cancelamento menos de 6 dias da data de entrada – reembolso de 0% do sinal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Localização -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">2. Aonde estamos localizados?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 space-y-4 border-t font-medium border-slate-200 bg-white">
+                            <p>Estamos no coração do PETAR 💚</p>
+                            <p>📍 Estr. do Alambari, 565 – Serra, Iporanga/SP</p>
+                            <p>Pertinho das cavernas Ouro Grosso e Alambari, e a poucos minutos do Parque do PETAR, onde estão as principais cavernas e cachoeiras da região.</p>
+                            <p>Um refúgio rodeado pela Mata Atlântica e bem no coração das aventuras do PETAR!</p>
+                            <a href="https://maps.app.goo.gl/uA6iXMHxfv1Hni4F7" target="_blank" class="inline-flex items-center gap-1 text-royalBlue font-bold hover:text-sunYellow transition-colors mt-2">
+                                <i data-lucide="map" class="w-4 h-4"></i> Ver localização no Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Pet Friendly -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">3. Pet Friendly com algumas regrinhas!</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 space-y-4 border-t font-medium border-slate-200 bg-white">
+                            <p>Animais de pequeno porte são bem-vindos 💛</p>
+                            <p>Só pedimos que fiquem sempre com os tutores e <strong>não subam em camas ou sofás</strong>.</p>
+                            <p>Traga caminha, potes e fraldinha para seu pet.</p>
+                            <p>Lembre-se também de recolher as sujeirinhas e manter o espaço limpinho.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Trabalho -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">4. Precisa trabalhar durante a estadia?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 border-t font-medium border-slate-200 bg-white">
+                            <p>Temos wi-fi e mesas confortáveis pra você se conectar, fazer reuniões ou colocar o trabalho em dia com toda tranquilidade.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Alimentos -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">5. Posso levar alimentos e bebidas?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 border-t font-medium border-slate-200 bg-white">
+                            <p class="font-bold text-natureGreen mb-2">PODE SIM!</p>
+                            <p>Fique à vontade para trazer seus alimentos e bebidas e aproveitar seus momentos no chalé do jeitinho que preferir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Pagamento -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">6. Formas de pagamento</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 border-t font-medium border-slate-200 bg-white">
+                            <p>Aceitamos pagamentos em PIX, cartão de débito e crédito.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Horário -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">7. Horário de funcionamento</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 space-y-4 border-t font-medium border-slate-200 bg-white">
+                            <p>Reservas: atendimento das 8h às 21h00</p>
+                            <p>Café da manhã: das 7h às 9h</p>
+                            <p>Estamos por aqui prontos pra te receber com carinho e um café quentinho pra começar bem o dia!</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Contato -->
+                <div class="reveal accordion-item bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden cursor-pointer hover:bg-slate-100 transition-colors">
+                    <button class="accordion-header w-full p-6 text-left flex justify-between items-center outline-none transition-colors" onclick="toggleFaq(this)">
+                        <span class="font-black text-royalBlue uppercase text-sm tracking-tight">8. Como entrar em contato?</span>
+                        <i data-lucide="chevron-down" class="accordion-icon w-5 h-5 text-sunYellow transition-transform"></i>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="p-8 text-sm text-slate-600 space-y-4 border-t font-medium border-slate-200 bg-white">
+                            <p>Estamos prontos para atende-los!</p>
+                            <p>Nos envie uma mensagem PELO WHATSAPP</p>
+                            <a href="https://wa.me/5515998200523" target="_blank" class="inline-block mt-2 text-natureGreen font-black hover:underline uppercase tracking-wider text-xs">🔗 FAÇA A SUA RESERVA AQUI 💚</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="localizacao" class="bg-slate-900 text-slate-500 py-24 px-6 border-t border-white/5 text-center md:text-left">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-16 border-b border-slate-800 pb-16 mb-16">
+            <div>
+                <div class="flex items-center gap-3 mb-8 justify-center md:justify-start">
+                    <div class="relative w-10 h-10 rounded-full overflow-hidden border border-white/20 p-0.5 bg-royalBlue">
+                        <img src="imagens/logopousada.jpg" alt="Logo Footer" class="relative z-10 w-full h-full object-cover">
+                    </div>
+                    <span class="font-heading font-black text-white text-xl uppercase tracking-tighter">Chalés Morada do Sol PETAR</span>
+                </div>
+                <p class="text-[10px] font-black tracking-[0.3em] uppercase opacity-50 italic leading-relaxed max-w-xs mx-auto md:mx-0">Seu refúgio no PETAR</p>
+            </div>
+            
+            <div class="space-y-6">
+                <h5 class="text-white font-black text-xs uppercase tracking-[0.4em]">Localização</h5>
+                <p class="text-sm font-bold text-slate-300 italic">📍 Estr. do Alambari, 565 – Serra, Iporanga/SP</p>
+                <a href="https://maps.app.goo.gl/uA6iXMHxfv1Hni4F7" target="_blank" class="inline-block mt-2 text-sunYellow font-black hover:underline italic tracking-widest text-[10px]">ABRIR NO GOOGLE MAPS</a>
+            </div>
+            
+            <div class="space-y-8 text-left">
+                <h5 class="text-white font-black text-xs uppercase tracking-[0.4em] text-center md:text-left">Contacto Direto</h5>
+                <div class="space-y-4">
+                    <div class="flex items-center gap-4 justify-center md:justify-start text-white">
+                        <i data-lucide="phone" class="w-4 h-4 text-sunYellow"></i>
+                        <span class="text-sm font-black">(15) 99820-0523</span>
+                    </div>
+                    <div class="flex items-center gap-4 justify-center md:justify-start text-white">
+                        <i data-lucide="instagram" class="w-4 h-4 text-sunYellow"></i>
+                        <a href="https://www.instagram.com/moradadosolpetar?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" class="text-sm font-black hover:text-sunYellow transition-colors tracking-tight">@moradadosolpetar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-[9px] uppercase tracking-[0.4em] font-black opacity-30 text-center flex flex-col md:flex-row justify-between gap-4 mt-8">
+            <p>© 2026 Chalés Morada do Sol PETAR - @_pousadachalemoradosol</p>
+            <p>Aventura e Tranquilidade no PETAR</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Menu Mobile
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ Toggle
+        function toggleFaq(button) {
+            const item = button.parentElement;
+            const isActive = item.classList.contains('accordion-open');
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                if (el !== item) {
+                    el.classList.remove('accordion-open');
+                    el.querySelector('.accordion-content').style.maxHeight = null;
+                    el.querySelector('.accordion-content').style.opacity = 0;
+                }
+            });
+            if (isActive) {
+                item.classList.remove('accordion-open');
+                item.querySelector('.accordion-content').style.maxHeight = null;
+                item.querySelector('.accordion-content').style.opacity = 0;
+            } else {
+                item.classList.add('accordion-open');
+                const content = item.querySelector('.accordion-content');
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.style.opacity = 1;
+            }
+        }
+
+        // Lightbox Functions
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightboxModal');
+            const img = document.getElementById('lightboxImg');
+            
+            if (isDragging) return; // Prevent open on drag
+
+            img.src = src;
+            lightbox.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxModal').classList.add('hidden');
+        }
+
+        // Scroll Reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Navbar Style
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 80) nav.classList.add('py-2');
+            else nav.classList.remove('py-2');
+        });
+
+        // CARROSSEL GERAL (Auto + Drag)
+        const container = document.getElementById('gallery-container');
+        const track = document.getElementById('gallery-track');
+        
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        let animationId;
+        let isHovered = false;
+        let isDragging = false; 
+
+        function autoScroll() {
+            if (!isHovered && !isDown) {
+                container.scrollLeft += 1; 
+                if (container.scrollLeft >= (container.scrollWidth / 2)) {
+                    container.scrollLeft = 0;
+                }
+            }
+            animationId = requestAnimationFrame(autoScroll);
+        }
+
+        // Eventos do Mouse (PC)
+        container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            isDragging = false;
+            container.style.cursor = 'grabbing';
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            cancelAnimationFrame(animationId);
+        });
+
+        container.addEventListener('mouseleave', () => {
+            isDown = false;
+            isHovered = false;
+            container.style.cursor = 'grab';
+        });
+
+        container.addEventListener('mouseenter', () => isHovered = true);
+        
+        container.addEventListener('mouseup', () => {
+            isDown = false;
+            container.style.cursor = 'grab';
+            if (!isHovered) requestAnimationFrame(autoScroll);
+            setTimeout(() => isDragging = false, 10);
+        });
+
+        container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            isDragging = true;
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        // Eventos de Toque (Mobile)
+        container.addEventListener('touchstart', (e) => {
+            isDown = true;
+            isHovered = true;
+            isDragging = false;
+            startX = e.touches[0].pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            cancelAnimationFrame(animationId);
+        });
+
+        container.addEventListener('touchend', () => {
+            isDown = false;
+            isHovered = false;
+            requestAnimationFrame(autoScroll);
+            setTimeout(() => isDragging = false, 10);
+        });
+
+        container.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            isDragging = true;
+            const x = e.touches[0].pageX - container.offsetLeft;
+            const walk = (x - startX) * 2;
+            container.scrollLeft = scrollLeft - walk;
+        });
+
+        requestAnimationFrame(autoScroll);
+
+        // MINI-CARROSSEL DOS QUARTOS - Lógica de Setas Inteligente
+        // A função scrollRoom foi removida em favor de um sistema mais simples com observador de scroll
+
+        function updateArrows(slider) {
+            const container = slider.parentElement;
+            const prevBtn = container.querySelector('.prev-btn');
+            const nextBtn = container.querySelector('.next-btn');
+            
+            if (!prevBtn || !nextBtn) return;
+
+            // Tolerância para erros de arredondamento
+            const scrollLeft = Math.ceil(slider.scrollLeft);
+            const maxScroll = slider.scrollWidth - slider.clientWidth;
+
+            // Esconder Esquerda se no início
+            if (scrollLeft <= 0) {
+                prevBtn.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                prevBtn.classList.remove('opacity-0', 'pointer-events-none');
+            }
+
+            // Esconder Direita se no fim
+            if (scrollLeft >= maxScroll - 5) { // 5px tolerância
+                nextBtn.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                nextBtn.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        // Inicializar listeners nos sliders dos quartos
+        document.querySelectorAll('.room-slider').forEach(slider => {
+            // Ouvir o evento de scroll para atualizar setas
+            slider.addEventListener('scroll', () => updateArrows(slider));
+            
+            // Checagem inicial
+            updateArrows(slider);
+        });
+
+        // Função global para os botões chamarem
+        window.scrollRoom = function(btn, direction) {
+            const slider = btn.parentElement.querySelector('.room-slider');
+            const scrollAmount = slider.offsetWidth;
+            slider.scrollBy({
+                left: scrollAmount * direction,
+                behavior: 'smooth'
+            });
+            // A atualização das setas acontecerá automaticamente pelo evento 'scroll'
+        };
+
+        // CALCULADORA
+        let currentPricePerPerson = 0;
+        let currentRoomTitle = "";
+
+        function openCalc(roomName, price) {
+            currentPricePerPerson = price;
+            currentRoomTitle = roomName;
+            document.getElementById('modalRoomName').innerText = roomName;
+            document.getElementById('calcModal').classList.remove('hidden');
+            updateTotal();
+        }
+
+        function closeCalc() {
+            document.getElementById('calcModal').classList.add('hidden');
+        }
+
+        function updatePeople(change) {
+            const el = document.getElementById('numPeople');
+            let val = parseInt(el.value) + change;
+            if (val < 1) val = 1;
+            el.value = val;
+            updateTotal();
+        }
+
+        function updateDays(change) {
+            const el = document.getElementById('numDays');
+            let val = parseInt(el.value) + change;
+            if (val < 1) val = 1; 
+            el.value = val;
+            updateTotal();
+        }
+
+        function updateTotal() {
+            const people = parseInt(document.getElementById('numPeople').value);
+            const days = parseInt(document.getElementById('numDays').value);
+            const total = currentPricePerPerson * people * days;
+            document.getElementById('totalPrice').innerText = total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+
+        function sendZapCalc() {
+            const people = document.getElementById('numPeople').value;
+            const days = document.getElementById('numDays').value;
+            const total = document.getElementById('totalPrice').innerText;
+            const text = `Olá! Gostaria de reservar a *${currentRoomTitle}* para *${people} pessoas* por *${days} dias*. O site estimou *${total}*. Tem disponibilidade?`;
+            window.open(`https://wa.me/5515998200523?text=${encodeURIComponent(text)}`, '_blank');
+        }
+    </script>
+</body>
+</html>
